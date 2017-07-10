@@ -42,7 +42,7 @@ public class getGalleryImage extends Activity {
                 intent.putExtra("aspectX",1);
                 intent.putExtra("aspectY",1);
                 intent.putExtra("scale",true);
-                intent.putExtra("output",mImageCaptureUri);
+                intent.putExtra("output",mImageCaptureUri+"1");
                 intent.putExtra("return-data",true);
                 startActivityForResult(intent,1);
                 break;
@@ -52,7 +52,7 @@ public class getGalleryImage extends Activity {
                 Bitmap photo = extras.getParcelable("data");
                 iv_UserPhoto.setImageBitmap(photo);*/
                 try {
-                    Bitmap bm = MediaStore.Images.Media.getBitmap(getContentResolver(),mImageCaptureUri);
+                    Bitmap bm = MediaStore.Images.Media.getBitmap(getContentResolver(),Uri.parse(mImageCaptureUri.toString()+"1"));
                     iv_UserPhoto.setImageBitmap(bm);
                 } catch (IOException e) {
                     e.printStackTrace();
