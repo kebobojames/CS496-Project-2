@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Intent intent = getIntent();
+
         nickname = intent.getStringExtra("nickname");
         profileImageURL = intent.getStringExtra("profileImageURL");
         thumbnailURL = intent.getStringExtra("thumbnailURL");
@@ -60,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void withGalleryImage(View v){
         Intent intent = new Intent(this, getGalleryImage.class);
+        intent.putExtra("nickname",nickname);
         startActivity(intent);
     }
 }
