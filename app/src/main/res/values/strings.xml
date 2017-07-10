@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">faceoff</string>
+
+    <string name="kakao_app_key">be86c0911a0b37cc55f252707e77b670</string>
+</resources>
