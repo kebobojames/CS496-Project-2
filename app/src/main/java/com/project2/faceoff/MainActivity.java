@@ -39,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
 
         nickname = intent.getStringExtra("nickname");
         profileImageURL = intent.getStringExtra("profileImageURL");
-        thumbnailURL = intent.getStringExtra("thumbnailURL");
         if(profileImageURL != null){
             WebView wv = (WebView) findViewById(R.id.wv);
             WebSettings ws = wv.getSettings();
@@ -55,8 +54,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void withProfileImage(View v){
         Intent intent = new Intent(this, CelebImageActivity.class);
-        intent.putExtra("profileImageURL",profileImageURL);
         intent.putExtra("nickname",nickname);
+        intent.putExtra("url",profileImageURL);
+        intent.putExtra("from","profile");
         startActivity(intent);
     }
     public void withGalleryImage(View v){

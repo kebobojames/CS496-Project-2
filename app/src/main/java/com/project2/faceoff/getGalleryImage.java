@@ -3,6 +3,7 @@ package com.project2.faceoff;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -38,6 +39,7 @@ public class getGalleryImage extends Activity {
         switch (requestCode) {
             case 0: {
                 mImageCaptureUri = data.getData();
+
                 Log.d("imageuri", mImageCaptureUri.getPath().toString());
                 Intent intent = new Intent("com.android.camera.action.CROP");
                 intent.setDataAndType(mImageCaptureUri, "image/*");
@@ -56,14 +58,22 @@ public class getGalleryImage extends Activity {
                 Intent intentt = getIntent();
                 String nickname = intentt.getStringExtra("nickname");
                 intent.putExtra("nickname",nickname);
+                String[] proj = { MediaStore.Images.Media.DATA };
+                Cursor cursor = getContentResolver().query(mImageCaptureUri, proj, null, null, null);
+                int column_index = cursor
+                        .getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+                cursor.moveToFirst();
+                String path = cursor.getString(column_index);
+                cursor.close();
+                Log.v("PLEASEEEEEEEEEEEEEEEE", path);
+                intent.putExtra("path", path);
                 intent.putExtra("mImageCaptureUri", mImageCaptureUri.toString());
                 startActivity(intent);
-                finish();
+                //finish();
             }
         }
     }
     public void fin(View v){
-
         finish();
     }
 }

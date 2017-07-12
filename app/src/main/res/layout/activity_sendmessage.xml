@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.project2.faceoff.LoginActivity">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="158dp"
+            android:layout_height="41dp"
+            android:layout_marginTop="200dp"
+            android:onClick="sendKatalk"
+            android:text="카톡으로 자랑하기" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="158dp"
+            android:layout_height="41dp"
+            android:onClick="sendSMS"
+            android:text="문자로 자랑하기"
+            android:layout_alignBottom="@+id/button1"
+            android:layout_alignParentRight="true" />
+
+    </RelativeLayout>
+
+
+</android.support.constraint.ConstraintLayout>

@@ -36,7 +36,10 @@ public class showImage extends AppCompatActivity {
         intent.putExtra("mImageCaptureUri",mImageCaptureUri.toString());
         Intent intentt = getIntent();
         nickname = intentt.getStringExtra("nickname");
+        String path = intentt.getStringExtra("path");
         intent.putExtra("nickname",nickname);
+        intent.putExtra("path", path);
+        intent.putExtra("from","gallery");
         startActivity(intent);
     }
 }
